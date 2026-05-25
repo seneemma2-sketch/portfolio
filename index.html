@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emma Sene — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --rose: #C97B84;
+    --rose-light: #F5E8EA;
+    --rose-dark: #8B4A52;
+    --beige: #F7F3EE;
+    --beige-dark: #E8DFD5;
+    --charcoal: #2C2A28;
+    --mid: #6B6560;
+    --light: #FAF8F5;
+    --white: #ffffff;
+    --accent: #B8860B;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--light);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(250, 248, 245, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--beige-dark);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--charcoal);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--rose); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 6rem 4rem 4rem;
+    gap: 4rem;
+    background: var(--light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--rose-light) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 32px; height: 1px;
+    background: var(--rose);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--mid);
+    margin-bottom: 2.5rem;
+    max-width: 420px;
+    line-height: 1.8;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background: var(--charcoal);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background 0.25s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--rose-dark);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border: 1px solid var(--charcoal);
+    color: var(--charcoal);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.25s;
+  }
+
+  .btn-outline:hover {
+    background: var(--charcoal);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  .hero-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-photo-frame {
+    width: 320px;
+    height: 400px;
+    background: var(--beige);
+    border: 1px solid var(--beige-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-photo-frame::after {
+    content: '';
+    position: absolute;
+    bottom: -12px; right: -12px;
+    width: 100%; height: 100%;
+    border: 1px solid var(--rose);
+    z-index: -1;
+  }
+
+  .photo-caption {
+    position: absolute;
+    bottom: 1rem; left: 0; right: 0;
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.2);
+    padding: 0.2rem 0;
+    backdrop-filter: blur(4px);
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 4rem; }
+
+  .section-header { margin-bottom: 3.5rem; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--rose);
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.15;
+  }
+
+  /* ABOUT */
+  .about-section { background: var(--white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stat-item {
+    padding: 1.5rem;
+    background: var(--beige);
+    border-left: 2px solid var(--rose);
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .about-text p {
+    color: var(--mid);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+  }
+
+  .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .tag {
+    padding: 0.4rem 1rem;
+    background: var(--beige);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--charcoal);
+    border: 1px solid var(--beige-dark);
+    text-transform: uppercase;
+  }
+
+  /* PROJET POST-BUT */
+  .projet-section { background: var(--charcoal); color: var(--white); }
+  .projet-section .section-label { color: var(--rose); }
+  .projet-section h2 { color: var(--white); margin-bottom: 1rem; }
+  .projet-section h2 em { color: var(--rose); font-style: italic; }
+
+  .projet-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+
+  .projet-card {
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.03);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .projet-card:hover {
+    border-color: var(--rose);
+    transform: translateY(-4px);
+  }
+
+  .projet-card-icon { font-size: 1.5rem; margin-bottom: 1rem; color: var(--rose); }
+
+  .projet-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .projet-card p { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+  .projet-highlight {
+    grid-column: 1 / -1;
+    padding: 2.5rem;
+    border: 1px solid var(--rose);
+    background: rgba(201, 123, 132, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .projet-highlight-badge {
+    flex-shrink: 0;
+    width: 80px; height: 80px;
+    background: var(--rose);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--white);
+  }
+
+  .projet-highlight-text h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .projet-highlight-text p { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+
+  /* EXPÉRIENCES */
+  .exp-section { background: var(--light); }
+  .exp-timeline { position: relative; padding-left: 2rem; border-left: 1px solid var(--beige-dark); }
+  .exp-item { position: relative; margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--beige-dark); }
+  .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: -2.45rem; top: 0.4rem;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--rose);
+    border: 2px solid var(--light);
+  }
+
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem; }
+  .exp-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: var(--charcoal); }
+  
+  .exp-date {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--rose);
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    background: var(--rose-light);
+    white-space: nowrap;
+  }
+
+  .exp-company { font-size: 0.85rem; font-weight: 500; color: var(--mid); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1rem; }
+  .exp-content ul { list-style: none; margin-bottom: 1rem; }
+  .exp-content ul li { padding: 0.35rem 0; padding-left: 1.25rem; font-size: 0.95rem; color: var(--mid); position: relative; }
+  .exp-content ul li::before { content: '→'; position: absolute; left: 0; color: var(--rose); font-size: 0.8rem; }
+  
+  .exp-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+  .skill-pill { padding: 0.25rem 0.75rem; background: var(--beige); border: 1px solid var(--beige-dark); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid); }
+
+  /* PRODUCTIONS */
+  .prod-section { background: var(--white); }
+  .prod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+  .prod-card { background: var(--light); border: 1px solid var(--beige-dark); overflow: hidden; transition: transform 0.3s, border-color 0.3s; }
+  .prod-card:hover { transform: translateY(-6px); border-color: var(--rose); }
+  
+  .prod-media {
+    height: 240px;
+    background: var(--beige-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--mid);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .prod-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .prod-info { padding: 1.5rem; }
+  .prod-tag { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose); margin-bottom: 0.5rem; display: block; }
+  .prod-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.5rem; }
+  .prod-info p { font-size: 0.88rem; color: var(--mid); line-height: 1.6; }
+
+  /* COMPÉTENCES */
+  .skills-section { background: var(--light); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+  .skill-category { padding: 2rem; background: var(--beige); border-top: 2px solid var(--rose); transition: transform 0.25s; }
+  .skill-category:hover { transform: translateY(-4px); }
+  .skill-category h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--charcoal); margin-bottom: 1.25rem; }
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  
+  .skill-list li {
+    font-size: 0.875rem;
+    color: var(--charcoal);
+    position: relative;
+    padding-left: 0.75rem;
+  }
+
+  .skill-list li::before {
+    content: '';
+    width: 4px; height: 4px;
+    background: var(--rose);
+    border-radius: 50%;
+    position: absolute; left: 0; top: 0.6rem;
+  }
+
+  .skill-list li a {
+    color: var(--charcoal);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .skill-list li a:hover {
+    color: var(--rose);
+    text-decoration: underline;
+  }
+
+  .skill-proof-tag {
+    content: '📎 Proof';
+    font-size: 0.7rem;
+    background: rgba(201, 123, 132, 0.15);
+    color: var(--rose-dark);
+    padding: 0.1rem 0.3rem;
+    margin-left: 0.3rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .sm-pill-box {
+    margin-top: 0.35rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .sm-pill {
+    font-size: 0.75rem;
+    background: var(--white);
+    padding: 0.15rem 0.5rem;
+    border: 1px solid var(--beige-dark);
+    color: var(--mid) !important;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    transition: all 0.2s;
+  }
+
+  .sm-pill:hover {
+    border-color: var(--rose);
+    color: var(--rose) !important;
+    background: var(--rose-light);
+  }
+
+  /* LANGUES & SAVOIR-ÊTRE */
+  .soft-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+  .lang-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--beige-dark); }
+  .lang-name { font-size: 0.95rem; font-weight: 500; color: var(--charcoal); }
+  .lang-level { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rose); }
+  
+  .soft-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--beige-dark); font-size: 0.95rem; color: var(--charcoal); }
+  .soft-dot { width: 6px; height: 6px; background: var(--rose); border-radius: 50%; flex-shrink: 0; }
+
+  /* CONTACT */
+  .contact-section { background: var(--beige); text-align: center; }
+  .contact-section .section-label { justify-content: center; }
+  .contact-section .section-label::after { display: none; }
+  .contact-section .section-label::before { content: ''; max-width: 60px; height: 1px; background: var(--rose); }
+  .contact-lead { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 300; color: var(--mid); max-width: 560px; margin: 0 auto 3rem; line-height: 1.5; }
+  
+  .contact-items { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem; }
+  .contact-item { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; text-decoration: none; transition: transform 0.2s; }
+  .contact-item:hover { transform: translateY(-3px); }
+  .contact-icon { width: 48px; height: 48px; background: var(--white); border: 1px solid var(--beige-dark); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+  .contact-text { font-size: 0.8rem; font-weight: 500; color: var(--mid); letter-spacing: 0.05em; text-transform: uppercase; }
+  .contact-value { font-size: 0.85rem; color: var(--charcoal); }
+
+  footer { background: var(--charcoal); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  footer p { font-size: 0.78rem; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; }
+  .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.7); letter-spacing: 0.15em; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-content > * { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero-content h1 { animation-delay: 0.2s; }
+  .hero-subtitle { animation-delay: 0.35s; }
+  .hero-cta { animation-delay: 0.5s; }
+  .hero-image { opacity: 0; animation: fadeUp 0.9s ease 0.4s forwards; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    section, .hero { padding: 5rem 1.5rem; }
+    .hero { grid-template-columns: 1fr; padding-top: 8rem; text-align: center; }
+    .hero-eyebrow { justify-content: center; }
+    .hero-subtitle { margin: 0 auto 2rem; }
+    .hero-cta { justify-content: center; }
+    .hero-photo-frame { width: 260px; height: 320px; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .projet-grid { grid-template-columns: 1fr; }
+    .prod-grid { grid-template-columns: 1fr; }
+    .soft-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Emma Sene</a>
+  <ul class="nav-links">
+    <li><a href="#about">Profil</a></li>
+    <li><a href="#projet">Projet</a></li>
+    <li><a href="#experience">Parcours</a></li>
+    <li><a href="#productions">Productions</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Marketing Digital · Communication</div>
+    <h1>Emma<br><em>Sene</em></h1>
+    <p class="hero-subtitle">Étudiante en BUT Techniques de Commercialisation — Parcours MDEE à l'IUT Robert Schuman. Passionnée par le marketing digital et la communication de marque.</p>
+    <div class="hero-cta">
+      <a href="#projet" class="btn-primary">Mon projet post-BUT</a>
+      <a href="#experience" class="btn-outline">Voir mon parcours</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-photo-frame">
+      <img src="IMG_6909 2 3.jpg" alt="Emma Sene">
+      <span class="photo-caption">IUT Robert Schuman · Illkirch</span>
+    </div>
+  </div>
+</section>
+
+<section class="about-section" id="about">
+  <div class="section-header">
+    <div class="section-label">Qui suis-je</div>
+    <h2>Profil</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-stats">
+      <div class="stat-item">
+        <div class="stat-number">2+</div>
+        <div class="stat-label">Ans en alternance</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">MDEE</div>
+        <div class="stat-label">Parcours Marketing Digital</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Langues pratiquées</div>
+      </div>
+    </div>
+    <div class="about-text">
+      <p>Née en 2005, je suis actuellement en 3ème année de BUT Techniques de Commercialisation à l'IUT Robert Schuman d'Illkirch, dans le parcours Marketing Digital, E-commerce et Entrepreneuriat (MDEE).</p>
+      <p>Depuis 2024, j'évolue en alternance chez <strong>EKKIA</strong>, entreprise spécialisée dans l'équipement équestre, où j'assure la gestion des réseaux sociaux, la création de newsletters, les relations presse et l'organisation de shootings photo et vidéo.</p>
+      <p>Polyvalente et autonome, je me distingue par ma capacité à mener plusieurs projets de front, avec une sensibilité particulière pour la création de contenu et la communication visuelle.</p>
+      <div class="about-tags">
+        <span class="tag">Canva</span>
+        <span class="tag">Dialog Insight</span>
+        <span class="tag">PrestaShop</span>
+        <span class="tag">Pack Office</span>
+        <span class="tag">Réseaux sociaux</span>
+        <span class="tag">Équitation Galop 7</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="projet-section" id="projet">
+  <div class="section-header">
+    <div class="section-label">Ambition</div>
+    <h2>Mon projet <em>post-BUT</em></h2>
+    <p style="color:rgba(255,255,255,0.55); margin-top:1rem; max-width:560px; font-size:1rem;">
+      À l'issue de mon BUT TC, j'intègrerai le Programme Grande École de l'EM Strasbourg pour approfondir mes expertises en marketing et management.
+    </p>
+  </div>
+
+  <div class="projet-grid">
+    <div class="projet-highlight">
+      <div class="projet-highlight-badge">EM</div>
+      <div class="projet-highlight-text">
+        <h3>EM Strasbourg Business School</h3>
+        <p>Programme Grande École — Master in Management · À partir de 2026<br>
+        Une école de management d'excellence, membre de la Conférence des Grandes Écoles, pour une formation en management et stratégie d'entreprise au niveau international.</p>
+      </div>
+    </div>
+
+    <div class="projet-card">
+      <div class="projet-card-icon">◈</div>
+      <h3>Pourquoi l'EM Strasbourg ?</h3>
+      <p>Mon alternance chez EKKIA m'a permis de confirmer mon attrait pour le marketing stratégique. L'EM Strasbourg représente la formation idéale pour développer une vision globale et évoluer vers des responsabilités managériales.</p>
+    </div>
+
+    <div class="projet-card">
+      <div class="projet-card-icon">◈</div>
+      <h3>Ce que j'apporte</h3>
+      <p>2 ans d'expérience opérationnelle en alternance, des compétences concrètes en marketing digital, création de contenu et gestion de projet, ainsi qu'une sensibilité pour les secteurs lifestyle et équestre.</p>
+    </div>
+
+    <div class="projet-card">
+      <div class="projet-card-icon">◈</div>
+      <h3>Mon ambition professionnelle</h3>
+      <p>Évoluer vers un poste de responsable marketing ou chef de projet communication dans une entreprise à forte culture de marque, idéalement dans le secteur lifestyle, sport ou luxe.</p>
+    </div>
+
+    <div class="projet-card">
+      <div class="projet-card-icon">◈</div>
+      <h3>Compétences à développer</h3>
+      <p>Renforcer mes connaissances en stratégie d'entreprise, finance et marketing international afin de prendre en charge des projets marketing de grande envergure à l'échelle européenne.</p>
+    </div>
+  </div>
+</section>
+
+<section class="exp-section" id="experience">
+  <div class="section-header">
+    <div class="section-label">Parcours professionnel</div>
+    <h2>Expériences</h2>
+  </div>
+
+  <div class="exp-timeline">
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Assistante Marketing & Communication</div>
+          <div class="exp-company">EKKIA · Haguenau</div>
+        </div>
+        <span class="exp-date">2024 – 2026</span>
+      </div>
+      <div class="exp-content">
+        <p style="color:var(--mid); margin-bottom:0.75rem; font-size:0.9rem; font-style:italic;">Alternance — 2 ans</p>
+        <ul>
+          <li>Gestion et animation des réseaux sociaux (Instagram, LinkedIn, Facebook)</li>
+          <li>Création et envoi de newsletters via Dialog Insight</li>
+          <li>Gestion de la base de données produits sur PrestaShop</li>
+          <li>Préparation et organisation de shootings photo et vidéo</li>
+          <li>Gestion des relations presse et coordination avec les ambassadeurs de marque</li>
+        </ul>
+        <div class="exp-skills">
+          <span class="skill-pill">Dialog Insight</span>
+          <span class="skill-pill">PrestaShop</span>
+          <span class="skill-pill">Gestion de projet</span>
+          <span class="skill-pill">Relations publiques</span>
+          <span class="skill-pill">Création de contenu</span>
+          <span class="skill-pill">Community management</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Assistante Communication & Vente</div>
+          <div class="exp-company">Manon Forrer Prestige Immobilier</div>
+        </div>
+        <span class="exp-date">Avril 2024</span>
+      </div>
+      <div class="exp-content">
+        <p style="color:var(--mid); margin-bottom:0.75rem; font-size:0.9rem; font-style:italic;">Stage d'1 mois</p>
+        <ul>
+          <li>Création d'affiches vitrines et supports de communication via Canva</li>
+          <li>Mise en ligne des biens immobiliers à vendre et à louer</li>
+          <li>Phoning et e-mailing clients</li>
+          <li>Réalisation de visites de biens</li>
+        </ul>
+        <div class="exp-skills">
+          <span class="skill-pill">Canva</span>
+          <span class="skill-pill">Communication visuelle</span>
+          <span class="skill-pill">Vente</span>
+          <span class="skill-pill">Écoute active</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Réceptionniste</div>
+          <div class="exp-company">Hôpital de la Tour · Genève, CH</div>
+        </div>
+        <span class="exp-date">Août 2023</span>
+      </div>
+      <div class="exp-content">
+        <p style="color:var(--mid); margin-bottom:0.75rem; font-size:0.9rem; font-style:italic;">Emploi estival</p>
+        <ul>
+          <li>Accueil et guidage des patients dans un environnement international</li>
+          <li>Gestion des appels et relance des factures</li>
+          <li>Mise à jour des dossiers patients</li>
+        </ul>
+        <div class="exp-skills">
+          <span class="skill-pill">Relationnel</span>
+          <span class="skill-pill">Gestion du stress</span>
+          <span class="skill-pill">Administration</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Hôtesse d'accueil VIP</div>
+          <div class="exp-company">Profeel · Schiltigheim</div>
+        </div>
+        <span class="exp-date">2023 – 2024</span>
+      </div>
+      <div class="exp-content">
+        <p style="color:var(--mid); margin-bottom:0.75rem; font-size:0.9rem; font-style:italic;">Emploi étudiant</p>
+        <ul>
+          <li>Accueil et guidage en salons VIP</li>
+          <li>Gestion des vestiaires, du bar et des flux visiteurs</li>
+          <li>Distribution de supports marketing (tracting)</li>
+        </ul>
+        <div class="exp-skills">
+          <span class="skill-pill">Organisation</span>
+          <span class="skill-pill">Élocution</span>
+          <span class="skill-pill">Rapidité</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="prod-section" id="productions">
+  <div class="section-header">
+    <div class="section-label">Mes réalisations</div>
+    <h2>Productions</h2>
+  </div>
+
+  <div class="prod-grid">
+    <div class="prod-card">
+      <div class="prod-media">
+        <img src="981004022_ambi_5v2_web.jpg" alt="Shooting EQUITHÈME - Karim Laghouag">
+      </div>
+      <div class="prod-info">
+        <span class="prod-tag">Direction Artistique · Shooting Photo</span>
+        <h3>Shooting Karim Laghouag (Cavalier Olympique)</h3>
+        <p>Co-organisation, stylisme et direction de shooting d'ambiance pour la marque EQUITHÈME avec l'ambassadeur et cavalier international de renom Karim Laghouag.</p>
+      </div>
+    </div>
+
+    <div class="prod-card" style="cursor: pointer;" onclick="window.open('newsletter_hippotonic.pdf', '_blank')">
+      <div class="prod-media">
+        <img src="981006023_ambi_11_web.jpg" alt="Newsletter Hippotonic">
+      </div>
+      <div class="prod-info">
+        <span class="prod-tag">Email Marketing · Dialog Insight</span>
+        <h3>Newsletter & CRM Hippotonic</h3>
+        <p>Conception graphique, rédaction de contenu et segmentation d'audience B2B/B2C pour le lancement du nouveau conditionnement recharge de 4kg (Pomme/Carotte).</p>
+      </div>
+    </div>
+
+    <div class="prod-card" style="cursor: pointer;" onclick="window.open('gestion-pim-equitheme.pdf', '_blank')">
+      <div class="prod-media" style="background-color: var(--beige-dark); display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+        📦
+      </div>
+      <div class="prod-info">
+        <span class="prod-tag">E-Commerce & Logistique · PIM</span>
+        <h3>Gestion de base de données produits</h3>
+        <p>Enrichissement technique, intégration de prix HT/TTC, gestion des stocks et création de fiches produits complexes comme le Gilet Airbag Airsafe d'EQUITHÈME.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-section" id="competences">
+  <div class="section-header">
+    <div class="section-label">Savoir-faire & Justificatifs</div>
+    <h2>Compétences</h2>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-category">
+      <h3>Marketing Digital</h3>
+      <ul class="skill-list">
+        <li>
+          <strong>Community management</strong>
+          <div class="sm-pill-box">
+            <a href="https://www.instagram.com/equitheme/" target="_blank" class="sm-pill">📸 @equitheme</a>
+            <a href="https://www.instagram.com/norton.officiel/" target="_blank" class="sm-pill">📸 @norton</a>
+            <a href="https://www.instagram.com/hippotonic_officiel/" target="_blank" class="sm-pill">📸 @hippotonic</a>
+            <a href="https://www.instagram.com/riding.world_officiel/" target="_blank" class="sm-pill">📸 @riding.world</a>
+          </div>
+        </li>
+        <li>
+          <a href="newsletter_hippotonic.pdf" target="_blank">Email marketing (Dialog Insight)</a><span class="skill-proof-tag">Proof</span>
+        </li>
+        <li>
+          <a href="gestion-pim-equitheme.pdf" target="_blank">E-commerce (PIM & PrestaShop)</a><span class="skill-proof-tag">Proof</span>
+        </li>
+        <li>Création de contenu</li>
+        <li>Relations presse & influenceurs</li>
+      </ul>
+    </div>
+    
+    <div class="skill-category">
+      <h3>Outils & Logiciels</h3>
+      <ul class="skill-list">
+        <li>Canva</li>
+        <li>Pack Office (Word, Excel, PPT)</li>
+        <li>Dialog Insight</li>
+        <li>PrestaShop & PIM</li>
+        <li>Réseaux sociaux (Meta, LinkedIn)</li>
+      </ul>
+    </div>
+    
+    <div class="skill-category">
+      <h3>Communication</h3>
+      <ul class="skill-list">
+        <li>
+          <strong>Communication visuelle (Catalogue) :</strong>
+          <div style="margin-top: 0.3rem; margin-bottom:0.3rem; display: flex; flex-direction: column; gap: 0.25rem;">
+            <a href="https://www.calameo.com/read/00549405417aee6eb4044?authid=SIBRfKHMNtPj" target="_blank" style="font-size: 0.8rem; color: var(--mid);">📖 Partie 1 — Cavalier</a>
+            <a href="https://www.calameo.com/read/0054940541869c8f1e3da?authid=Eb6yjm5kzF4j" target="_blank" style="font-size: 0.8rem; color: var(--mid);">📖 Partie 2 — Cheval</a>
+            <a href="https://www.calameo.com/read/005494054a6cf9e7fdccd?authid=4nH1QamoTATO" target="_blank" style="font-size: 0.8rem; color: var(--mid);">📖 Partie 3 — Soins & Autour</a>
+          </div>
+          <span style="font-size: 0.72rem; color: var(--rose); font-style: italic; display: block; line-height:1.2;">
+            ✨ Éditions en Français, Anglais, Allemand et Espagnol
+          </span>
+        </li>
+        <li>Production photo & vidéo</li>
+        <li>Rédaction web & newsletters</li>
+        <li>Relations publiques</li>
+        <li>Phoning & e-mailing</li>
+      </ul>
+    </div>
+    
+    <div class="skill-category">
+      <h3>Savoir-être</h3>
+      <ul class="skill-list">
+        <li>Polyvalence</li>
+        <li>Organisation & rigueur</li>
+        <li>Autonomie</li>
+        <li>Écoute active</li>
+        <li>Gestion du stress</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="soft-grid" style="margin-top:3rem;">
+    <div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:400; margin-bottom:1rem;">Langues</h3>
+      <div class="lang-item">
+        <span class="lang-name">Français</span>
+        <span class="lang-level">Langue maternelle</span>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">Anglais</span>
+        <span class="lang-level">Niveau B1</span>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">Espagnol</span>
+        <span class="lang-level">Niveau B1</span>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:400; margin-bottom:1rem;">Centres d'intérêt</h3>
+      <div class="soft-item"><span class="soft-dot"></span>Équitation en compétition internationale (Galop 7)</div>
+      <div class="soft-item"><span class="soft-dot"></span>Course à pied</div>
+      <div class="soft-item"><span class="soft-dot"></span>Nature & environnement</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="section-label">Me contacter</div>
+  <h2 style="margin-bottom:1rem;">Prenons contact</h2>
+  <p class="contact-lead">Disponible pour tout échange autour de mon parcours, de mes projets ou d'une opportunité professionnelle.</p>
+
+  <div class="contact-items">
+    <a href="tel:+33651877356" class="contact-item">
+      <div class="contact-icon">📞</div>
+      <span class="contact-text">Téléphone</span>
+      <span class="contact-value">+33 6 51 87 73 56</span>
+    </a>
+    <a href="mailto:emma.sene@yahoo.com" class="contact-item">
+      <div class="contact-icon">✉</div>
+      <span class="contact-text">Email</span>
+      <span class="contact-value">emma.sene@yahoo.com</span>
+    </a>
+    <a href="https://linkedin.com/in/emma-sene" target="_blank" class="contact-item">
+      <div class="contact-icon">in</div>
+      <span class="contact-text">LinkedIn</span>
+      <span class="contact-value">linkedin.com/in/emma-sene</span>
+    </a>
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <span class="contact-text">Localisation</span>
+      <span class="contact-value">Eckbolsheim · Alsace</span>
+    </div>
+  </div>
+
+  <a href="mailto:emma.sene@yahoo.com" class="btn-primary" style="display:inline-block;">Envoyer un message</a>
+</section>
+
+<footer>
+  <span class="footer-name">Emma Sene</span>
+  <p>BUT TC · Parcours MDEE · IUT Robert Schuman · 2023–2026</p>
+  <p>Future étudiante EM Strasbourg · PGE 2026</p>
+</footer>
+
+</body>
+</html>
